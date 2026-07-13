@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Living Water Pools and Spas — expert design and installation of commercial and custom residential swimming pools and spas across the DFW Metroplex." />
+  <title>Commercial &amp; Custom Pool Builders | Living Water Pools and Spas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- CSS load order: tokens → components → page styles → hero/gallery -->
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="nav-hero.css" />
+  <link rel="stylesheet" href="css/graft.css" />
+  <link rel="stylesheet" href="css/quote.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/hero-quote.css" />
+  <link rel="stylesheet" href="css/testimonials.css" />
+</head>
+<body>
+
+  <!-- =====================================================================
+     NAVBAR — transparent over the hero, solid on scroll
+     (Text wordmark is a placeholder — swap for the real LW logo image later.)
+  ====================================================================== -->
+  <header id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Living Water Pools and Spas — Home">
+        <img src="images/living-water-logo.svg" alt="Living Water Pools and Spas" class="nav-logo-img" />
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#hero" class="is-active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#quote" class="btn-primary">
+          Get Your Free Quote
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </a>
+      </div>
+
+      <button class="nav-hamburger" aria-expanded="false" aria-label="Open navigation menu" aria-controls="mobile-drawer">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-drawer" id="mobile-drawer" aria-label="Mobile navigation">
+        <ul>
+          <li><a href="#hero" class="is-active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-drawer-cta">
+          <a href="#quote" class="btn-primary">
+            Get Your Free Quote
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="nav-overlay" aria-hidden="true"></div>
+
+  <!-- =====================================================================
+     HERO — 5-image crossfade carousel (alternating Ken-Burns) + centered content.
+     Isolated under #hero.eph-hero (see css/styles.css). A gradient fallback
+     shows until images/hero/hero-1..5.jpg are added.
+  ====================================================================== -->
+  <section id="hero" class="eph-hero">
+    <div class="eph-carousel" aria-hidden="true">
+      <div class="eph-slide is-active" style="background-image:url('images/hero/hero-1.jpg')"></div>
+      <div class="eph-slide" style="background-image:url('images/hero/hero-2.jpg')"></div>
+      <div class="eph-slide" style="background-image:url('images/hero/hero-3.jpg')"></div>
+      <div class="eph-slide" style="background-image:url('images/hero/hero-4.jpg')"></div>
+      <div class="eph-slide" style="background-image:url('images/hero/hero-5.jpg')"></div>
+    </div>
+    <div class="eph-overlay" aria-hidden="true"></div>
+
+    <div class="container eph-inner">
+      <div class="eph-content">
+        <p class="eph-eyebrow">Fort Worth, TX &amp; the DFW Metroplex</p>
+        <h1 class="eph-heading">
+          Expert Design &amp; Installation<br />
+          <span class="accent">for Every Pool</span>
+        </h1>
+        <p class="eph-sub">
+          Living Water Pools and Spas builds energy-efficient, visually stunning
+          commercial swimming pools — plus custom residential pools and spas —
+          engineered to draw people in and last for decades.
+        </p>
+        <div class="eph-actions">
+          <a href="#quote" class="btn-primary">
+            Get Your Free Quote
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
+            </svg>
+          </a>
+          <a href="#projects" class="btn-ghost-white">
+            View Our Work
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Multi-step quote wizard (branches by service; see js/hero-quote.js) -->
+      <div class="eph-quote" id="quote">
+        <form class="hq" id="heroQuote" novalidate aria-label="Get a free quote">
+          <div class="hq-head">
+            <div class="hq-head-row">
+              <span class="hq-title">Get Your Free Quote</span>
+              <span class="hq-step" id="hqStep">Step 1 of 7</span>
+            </div>
+            <div class="hq-progress"><div class="hq-progress-fill" id="hqFill"></div></div>
+          </div>
+          <div class="hq-body" id="hqBody"><!-- steps injected by JS --></div>
+          <div class="hq-foot">
+            <button type="button" class="hq-back" id="hqBack" hidden>&larr; Back</button>
+            <button type="button" class="hq-next" id="hqNext" hidden>Continue</button>
+          </div>
+        </form>
+
+        <div class="trust-bar">
+          <div class="trust-avatars">
+            <img src="images/testimonial-1.png" alt="" width="42" height="42" loading="lazy" decoding="async">
+            <img src="images/testimonial-2.png" alt="" width="42" height="42" loading="lazy" decoding="async">
+            <img src="images/testimonial-3.png" alt="" width="42" height="42" loading="lazy" decoding="async">
+          </div>
+          <p class="trust-text">
+            <span class="trust-text-1">Trusted by DFW Homeowners</span>
+            <span class="trust-text-2">5-star rated &middot; 100% recommended</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="eph-dots" role="tablist" aria-label="Hero background slides">
+      <button class="eph-dot is-active" aria-label="Slide 1"></button>
+      <button class="eph-dot" aria-label="Slide 2"></button>
+      <button class="eph-dot" aria-label="Slide 3"></button>
+      <button class="eph-dot" aria-label="Slide 4"></button>
+      <button class="eph-dot" aria-label="Slide 5"></button>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+     ABOUT
+  ====================================================================== -->
+  <section id="about" class="section-padding">
+    <svg class="wave-lines" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="none">
+        <path d="M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30"/>
+        <path d="M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30"/>
+        <path d="M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30"/>
+        <path d="M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30"/>
+        <path d="M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30"/>
+        <path d="M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30"/>
+      </g>
+    </svg>
+
+    <div class="container about-inner">
+      <div class="about-img-col reveal fade-right">
+        <div class="about-img-frame">
+          <picture>
+            <img class="about-img-main" src="images/gallery/gallery-5.jpg"
+                 alt="Custom pool and raised spa built by Living Water Pools and Spas" width="600" height="450" loading="lazy" decoding="async">
+          </picture>
+          <div class="about-img-badge" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Callout under the image -->
+        <div class="about-hook">
+          <div class="about-hook-row">
+            <span class="about-hook-icons" aria-hidden="true">
+              <span class="about-hook-phone">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.24 1.05l-2.2 2.19z"/></svg>
+              </span>
+            </span>
+            <p class="about-hook-text">From design to first swim &ndash; <a href="#quote">Where Living Water Brings Your Backyard to Life</a></p>
+          </div>
+
+          <div class="about-hook-row about-hook-rating">
+            <span class="about-hook-score">5.0</span>
+            <span class="about-hook-stars" aria-label="5 out of 5 stars">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </span>
+            <span class="about-hook-reviews">100% Recommended</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content reveal fade-left">
+        <p class="eyebrow">About Living Water Pools and Spas</p>
+        <h2>North Texas's Commercial &amp; Custom Pool Builder</h2>
+        <p>
+          At Living Water Pools and Spas, we design and install energy-efficient,
+          visually stunning swimming pools — from large-scale commercial installations
+          to custom residential pools and spas. Serving the greater Fort Worth and DFW
+          area, we build with commercial-grade standards and craftsmanship on every
+          project, big or small.
+        </p>
+
+        <div class="about-tab-row">
+          <div class="about-tab-col">
+            <div class="about-tabs" role="tablist" aria-label="About sections">
+              <button class="about-tab-btn is-active" role="tab" aria-selected="true" aria-controls="tab-mission" id="btn-mission" data-tab="mission">Mission</button>
+              <button class="about-tab-btn" role="tab" aria-selected="false" aria-controls="tab-vision" id="btn-vision" data-tab="vision">Vision</button>
+              <button class="about-tab-btn" role="tab" aria-selected="false" aria-controls="tab-values" id="btn-values" data-tab="values">Core Values</button>
+            </div>
+
+            <div class="about-tab-panel is-active" id="tab-mission" role="tabpanel" aria-labelledby="btn-mission">
+              <p>To deliver pools that draw people in and hold up for decades — engineered
+                for performance, finished for beauty, and tailored to how each space is
+                actually used, whether it's a family backyard or a busy facility.</p>
+              <ul class="about-checklist">
+                <li>Custom design for commercial &amp; residential</li>
+                <li>Energy-efficient equipment and builds</li>
+                <li>Commercial-grade quality on every project</li>
+              </ul>
+              <a href="#quote" class="btn-primary">
+                Learn More
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </a>
+            </div>
+
+            <div class="about-tab-panel" id="tab-vision" role="tabpanel" aria-labelledby="btn-vision">
+              <p>To be North Texas's most trusted name in pools and spas — the builder
+                facilities and families call first when the result has to look
+                incredible and perform without compromise.</p>
+              <ul class="about-checklist">
+                <li>Designs approved before any work begins</li>
+                <li>Full permit and inspection management</li>
+                <li>Built to pass commercial code and last</li>
+              </ul>
+              <a href="#quote" class="btn-primary">
+                Learn More
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </a>
+            </div>
+
+            <div class="about-tab-panel" id="tab-values" role="tabpanel" aria-labelledby="btn-values">
+              <p>Straight answers, clean workmanship, and pride in the finished product.
+                We tell you what your site and budget can support, price it honestly, and
+                stand behind every pool we build.</p>
+              <ul class="about-checklist">
+                <li>Honest guidance — no pressure, no upselling</li>
+                <li>Local knowledge of North Texas sites and code</li>
+                <li>Clear pricing up front — no hidden costs</li>
+              </ul>
+              <a href="#quote" class="btn-primary">
+                Learn More
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="about-aside-col">
+            <div class="about-secondary-img img-zoom">
+              <picture>
+                <img src="images/gallery/gallery-6.jpg" alt="Pool and spa with fountains by Living Water Pools and Spas" width="190" height="145" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <p class="about-aside-caption">
+              Commercial &amp; residential pools across North Texas — built by people who care about the craft.
+            </p>
+            <div class="about-stat">
+              <span class="about-stat-num">100<span>%</span></span>
+              <span class="about-stat-label">Recommended by Our Clients</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+     SERVICES — 4 cards (New Pools · Spas · Patios · Outdoor Kitchens)
+  ====================================================================== -->
+  <section id="services" class="section-padding">
+    <div class="services-bg" aria-hidden="true">
+      <video class="services-bg-video" autoplay muted loop playsinline preload="auto" poster="images/hero/hero-5.jpg">
+        <source src="videos/services-bg.mp4" type="video/mp4">
+      </video>
+      <div class="services-bg-overlay"></div>
+    </div>
+
+    <div class="container">
+      <div class="services-header reveal fade-up">
+        <p class="eyebrow">What We Build</p>
+        <h2>Pool &amp; Outdoor Living Services For Every Space</h2>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Card 1 — New Pools -->
+        <div class="service-card reveal fade-up delay-1">
+          <div class="service-card-bg" aria-hidden="true">
+            <picture><img src="images/gallery/gallery-7.jpg" alt="" width="400" height="500" loading="lazy" decoding="async"></picture>
+          </div>
+          <div class="service-card-inner">
+            <div class="service-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                <path d="M8 4v10"/><path d="M11 4v10"/><path d="M8 7h3"/><path d="M8 10.5h3"/><path d="M3 14h18"/>
+                <path d="M3 17.2c1.5 0 1.5 1.2 3 1.2s1.5-1.2 3-1.2 1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2"/>
+                <path d="M3 20.2c1.5 0 1.5 1.2 3 1.2s1.5-1.2 3-1.2 1.5 1.2 3 1.2 1.5-1.2 3-1.2 1.5 1.2 3 1.2"/>
+              </svg>
+            </div>
+            <h3 class="service-card-title">New Pools</h3>
+            <p class="service-card-body">Custom in-ground pools designed and built to fit your space — from sleek modern geometrics to resort-style retreats, engineered to last.</p>
+            <ul class="service-checklist">
+              <li>Gunite, freeform &amp; geometric builds</li>
+              <li>LED lighting &amp; water features</li>
+            </ul>
+            <a href="service-new-pools.html" class="service-card-btn">
+              Explore More
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 — Spas -->
+        <div class="service-card reveal fade-up delay-2">
+          <div class="service-card-bg" aria-hidden="true">
+            <picture><img src="images/gallery/gallery-5.jpg" alt="" width="400" height="500" loading="lazy" decoding="async"></picture>
+          </div>
+          <div class="service-card-inner">
+            <div class="service-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                <path d="M4 12.5h16v3.5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/>
+                <path d="M7 12.5V8.2a1.8 1.8 0 0 1 3.6 0"/>
+                <path d="M10.6 8.2h.01"/>
+                <path d="M9 5.5c.8.6.8 1.4 0 2M12.5 5c.8.6.8 1.4 0 2M16 5.5c.8.6.8 1.4 0 2"/>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Spas &amp; Hot Tubs</h3>
+            <p class="service-card-body">Integrated spas and spillovers with custom tile and jets — a warm, year-round retreat built right into your pool or as a standalone.</p>
+            <ul class="service-checklist">
+              <li>Spillover spas &amp; raised walls</li>
+              <li>Custom tile, jets &amp; heating</li>
+            </ul>
+            <a href="service-spas.html" class="service-card-btn">
+              Explore More
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 — Patios -->
+        <div class="service-card reveal fade-up delay-3">
+          <div class="service-card-bg" aria-hidden="true">
+            <picture><img src="images/gallery/gallery-6.jpg" alt="" width="400" height="500" loading="lazy" decoding="async"></picture>
+          </div>
+          <div class="service-card-inner">
+            <div class="service-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                <rect x="3" y="5" width="18" height="14" rx="0.5"/><path d="M3 9.7h18"/><path d="M3 14.3h18"/><path d="M10 5v4.7"/><path d="M15.5 5v4.7"/><path d="M7 9.7v4.6"/><path d="M12.5 9.7v4.6"/><path d="M18 9.7v4.6"/><path d="M10 14.3V19"/><path d="M15.5 14.3V19"/>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Patios &amp; Decking</h3>
+            <p class="service-card-body">Travertine, paver, and stamped-concrete patios and decking that tie your pool into a complete, weather-ready outdoor living space.</p>
+            <ul class="service-checklist">
+              <li>Travertine, paver &amp; stamped concrete</li>
+              <li>Coping, decking &amp; pergolas</li>
+            </ul>
+            <a href="service-patios.html" class="service-card-btn">
+              Explore More
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4 — Outdoor Kitchens -->
+        <div class="service-card reveal fade-up delay-4">
+          <div class="service-card-bg" aria-hidden="true">
+            <picture><img src="images/gallery/gallery-9.png" alt="" width="400" height="500" loading="lazy" decoding="async"></picture>
+          </div>
+          <div class="service-card-inner">
+            <div class="service-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                <rect x="4" y="9" width="16" height="8" rx="1"/><path d="M4 12.5h16"/><path d="M7.5 6.5c0-1 1-1 1-2M11 6.5c0-1 1-1 1-2M14.5 6.5c0-1 1-1 1-2"/><path d="M7 17v2.5"/><path d="M17 17v2.5"/>
+              </svg>
+            </div>
+            <h3 class="service-card-title">Outdoor Kitchens</h3>
+            <p class="service-card-body">Built-in grills, bars, and full outdoor kitchens designed for entertaining — the finishing touch that makes your backyard the destination.</p>
+            <ul class="service-checklist">
+              <li>Built-in grills, bars &amp; counters</li>
+              <li>Stone, tile &amp; custom cabinetry</li>
+            </ul>
+            <a href="service-outdoor-kitchens.html" class="service-card-btn">
+              Explore More
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+     PROJECTS — filterable gallery + lightbox
+  ====================================================================== -->
+  <section id="projects" class="section-padding">
+    <svg class="wave-lines" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="none">
+        <path d="M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30"/>
+        <path d="M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30"/>
+        <path d="M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30"/>
+        <path d="M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30"/>
+        <path d="M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30"/>
+        <path d="M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30"/>
+      </g>
+    </svg>
+
+    <div class="container">
+      <div class="projects-header reveal fade-up">
+        <div class="projects-header-left">
+          <p class="eyebrow projects-eyebrow">Our Projects</p>
+          <h2>Real Pools. Real Backyards.</h2>
+        </div>
+        <div class="projects-header-right">
+          <p class="projects-sub">
+            Every project here was designed and built for a real North Texas client.
+            Browse by type to find work that matches what you have in mind.
+          </p>
+        </div>
+      </div>
+
+      <div class="projects-filters reveal fade-up">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <span class="filter-dot" aria-hidden="true"></span>
+        <button class="filter-btn" data-filter="pools">New Pools</button>
+        <span class="filter-dot" aria-hidden="true"></span>
+        <button class="filter-btn" data-filter="spas">Spas</button>
+        <span class="filter-dot" aria-hidden="true"></span>
+        <button class="filter-btn" data-filter="patios">Patios</button>
+        <span class="filter-dot" aria-hidden="true"></span>
+        <button class="filter-btn" data-filter="kitchens">Outdoor Kitchens</button>
+        <span class="filter-dot" aria-hidden="true"></span>
+        <button class="filter-btn" data-filter="reels">Instagram Reels</button>
+      </div>
+
+      <div class="projects-filter-line"></div>
+
+      <div class="projects-grid-wrap">
+        <div class="projects-grid" id="projectsGrid">
+
+          <div class="project-card" data-category="pools" data-img="images/gallery/gallery-7.jpg" data-title="Modern Geometric Pool" data-location="Southlake, TX">
+            <picture><img src="images/gallery/gallery-7.jpg" alt="Modern geometric pool — Southlake, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Modern Geometric Pool</h4><p>Southlake, TX</p></div>
+          </div>
+
+          <div class="project-card" data-category="pools" data-img="images/gallery/gallery-8.jpg" data-title="Pool &amp; Spa with Fountains" data-location="Keller, TX">
+            <picture><img src="images/gallery/gallery-8.jpg" alt="Pool and spa with fountains — Keller, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Pool &amp; Spa with Fountains</h4><p>Keller, TX</p></div>
+          </div>
+
+          <div class="project-card" data-category="spas" data-img="images/gallery/gallery-5.jpg" data-title="Mosaic Spillover Spa" data-location="Colleyville, TX">
+            <picture><img src="images/gallery/gallery-5.jpg" alt="Mosaic-tile spillover spa — Colleyville, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Mosaic Spillover Spa</h4><p>Colleyville, TX</p></div>
+          </div>
+
+          <div class="project-card" data-category="patios" data-img="images/gallery/gallery-6.jpg" data-title="Pool, Spa &amp; Pergola" data-location="Grapevine, TX">
+            <picture><img src="images/hero/hero-5.jpg" alt="Pool, spa and pergola — Grapevine, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Pool, Spa &amp; Pergola</h4><p>Grapevine, TX</p></div>
+          </div>
+
+          <div class="project-card" data-category="pools" data-img="images/gallery/gallery-6.jpg" data-title="Freeform Backyard Pool" data-location="Fort Worth, TX">
+            <picture><img src="images/gallery/gallery-6.jpg" alt="Freeform backyard pool — Fort Worth, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Freeform Backyard Pool</h4><p>Fort Worth, TX</p></div>
+          </div>
+
+          <div class="project-card" data-category="spas" data-img="images/gallery/gallery-8.jpg" data-title="Raised Spa &amp; Water Feature" data-location="Arlington, TX">
+            <picture><img src="images/gallery/gallery-8.jpg" alt="Raised spa and water feature — Arlington, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Raised Spa &amp; Water Feature</h4><p>Arlington, TX</p></div>
+          </div>
+
+          <div class="project-card" data-category="patios" data-img="images/gallery/gallery-7.jpg" data-title="Travertine Pool Decking" data-location="Mansfield, TX">
+            <picture><img src="images/gallery/gallery-7.jpg" alt="Travertine pool decking — Mansfield, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Travertine Pool Decking</h4><p>Mansfield, TX</p></div>
+          </div>
+
+          <div class="project-card" data-category="kitchens" data-img="images/gallery/gallery-6.jpg" data-title="Outdoor Living Space" data-location="Fort Worth, TX">
+            <picture><img src="images/hero/hero-3.jpg" alt="Outdoor living space and covered patio — Fort Worth, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Outdoor Living Space</h4><p>Fort Worth, TX</p></div>
+          </div>
+
+        </div>
+
+        <!-- Instagram Reels panel — shown when the "Instagram Reels" filter is active -->
+        <div class="reels-grid" id="reelsPanel">
+          <a class="reel-card" href="https://www.instagram.com/p/DZOd6laFHTa/" target="_blank" rel="noopener" aria-label="View E-Pools & Construction on Instagram">
+            <video class="reel-video" src="videos/reels-1.mp4" autoplay loop muted playsinline preload="metadata" aria-label="E-Pools & Construction Instagram reel"></video>
+            <span class="reel-ig-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+            <span class="reel-hover" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg><span class="reel-hover-label">View Instagram</span></span>
+          </a>
+          <a class="reel-card" href="https://www.instagram.com/p/DZL4_a7imnZ/" target="_blank" rel="noopener" aria-label="View E-Pools & Construction on Instagram">
+            <video class="reel-video" src="videos/reels-2.mp4" autoplay loop muted playsinline preload="metadata" aria-label="E-Pools & Construction Instagram reel"></video>
+            <span class="reel-ig-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+            <span class="reel-hover" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg><span class="reel-hover-label">View Instagram</span></span>
+          </a>
+          <a class="reel-card" href="https://www.instagram.com/p/DZNLmXageah/" target="_blank" rel="noopener" aria-label="View E-Pools & Construction on Instagram">
+            <video class="reel-video" src="videos/reels-3.mp4" autoplay loop muted playsinline preload="metadata" aria-label="E-Pools & Construction Instagram reel"></video>
+            <span class="reel-ig-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+            <span class="reel-hover" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg><span class="reel-hover-label">View Instagram</span></span>
+          </a>
+          <a class="reel-card" href="https://www.instagram.com/p/C9FuDYAMXOl/" target="_blank" rel="noopener" aria-label="View E-Pools & Construction on Instagram">
+            <video class="reel-video" src="videos/reels-4.mp4" autoplay loop muted playsinline preload="metadata" aria-label="E-Pools & Construction Instagram reel"></video>
+            <span class="reel-ig-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+            <span class="reel-hover" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg><span class="reel-hover-label">View Instagram</span></span>
+          </a>
+        </div>        
+
+        <div class="projects-nav">
+          <button class="projects-nav-btn" id="projectsPrev" aria-label="Previous project">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button class="projects-nav-btn" id="projectsNext" aria-label="Next project">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Project image viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <div class="lightbox-inner">
+      <img id="lightboxImg" src="" alt="" loading="lazy" decoding="async">
+      <p id="lightboxCaption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+     TESTIMONIALS — 3-column vertical marquee (blue stars + rings)
+  ====================================================================== -->
+  <section id="testimonials" class="tm-section">
+    <div class="tm-bg" style="background-image:url('images/hero/hero-1.jpg')"></div>
+    <div class="tm-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="tm-head reveal fade-up">
+        <p class="eyebrow">Testimonials</p>
+        <h2>Kind Words From <span class="accent">Our Clients</span></h2>
+        <p class="tm-sub">We're proud of the relationships we build — here's what North Texas homeowners say about working with Living Water.</p>
+      </div>
+    </div>
+
+    <div class="tm-columns">
+
+      <!-- Column 1 -->
+      <div class="tm-col">
+        <div class="tm-col-track tm-col-track--a">
+          <figure class="tm-card">
+            <div class="tm-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+            <blockquote class="tm-text">From the first design meeting to the final swim, the Living Water team was professional and precise. Our backyard is now the best room in the house.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-1.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">The Hendersons</span><span class="tm-role">Southlake, TX</span></span></div>
+          </figure>
+          <figure class="tm-card">
+            <div class="tm-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+            <blockquote class="tm-text">They turned a plain yard into a stunning geometric pool with a spillover spa. The craftsmanship is second to none.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-2.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">Priya R.</span><span class="tm-role">Keller, TX</span></span></div>
+          </figure>
+          <figure class="tm-card">
+            <div class="tm-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+            <blockquote class="tm-text">Communication was constant and the build stayed on schedule. We couldn't be happier with our new pool.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-3.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">The Caldwell Family</span><span class="tm-role">Grapevine, TX</span></span></div>
+          </figure>
+          <!-- duplicate set for seamless loop -->
+          <figure class="tm-card" aria-hidden="true">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote class="tm-text">From the first design meeting to the final swim, the Living Water team was professional and precise. Our backyard is now the best room in the house.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-1.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">The Hendersons</span><span class="tm-role">Southlake, TX</span></span></div>
+          </figure>
+          <figure class="tm-card" aria-hidden="true">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote class="tm-text">They turned a plain yard into a stunning geometric pool with a spillover spa. The craftsmanship is second to none.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-2.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">Priya R.</span><span class="tm-role">Keller, TX</span></span></div>
+          </figure>
+          <figure class="tm-card" aria-hidden="true">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote class="tm-text">Communication was constant and the build stayed on schedule. We couldn't be happier with our new pool.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-3.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">The Caldwell Family</span><span class="tm-role">Grapevine, TX</span></span></div>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="tm-col tm-col--2">
+        <div class="tm-col-track tm-col-track--b">
+          <figure class="tm-card">
+            <div class="tm-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+            <blockquote class="tm-text">Worth every penny. The tile work is flawless and the finish still looks brand new two summers later.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-4.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">Derek O.</span><span class="tm-role">Colleyville, TX</span></span></div>
+          </figure>
+          <figure class="tm-card">
+            <div class="tm-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+            <blockquote class="tm-text">Living Water handled everything — design, permits, build, and decking. Truly full service and zero stress.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-5.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">Sofia M.</span><span class="tm-role">Arlington, TX</span></span></div>
+          </figure>
+          <figure class="tm-card">
+            <div class="tm-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+            <blockquote class="tm-text">Our neighbors keep asking who built it. The attention to detail blew us away — every tile and edge is perfect.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-6.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">James &amp; Tara W.</span><span class="tm-role">Frisco, TX</span></span></div>
+          </figure>
+          <!-- duplicate set -->
+          <figure class="tm-card" aria-hidden="true">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote class="tm-text">Worth every penny. The tile work is flawless and the finish still looks brand new two summers later.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-4.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">Derek O.</span><span class="tm-role">Colleyville, TX</span></span></div>
+          </figure>
+          <figure class="tm-card" aria-hidden="true">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote class="tm-text">Living Water handled everything — design, permits, build, and decking. Truly full service and zero stress.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-5.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">Sofia M.</span><span class="tm-role">Arlington, TX</span></span></div>
+          </figure>
+          <figure class="tm-card" aria-hidden="true">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote class="tm-text">Our neighbors keep asking who built it. The attention to detail blew us away — every tile and edge is perfect.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-6.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">James &amp; Tara W.</span><span class="tm-role">Frisco, TX</span></span></div>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="tm-col tm-col--3">
+        <div class="tm-col-track tm-col-track--c">
+          <figure class="tm-card">
+            <div class="tm-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+            <blockquote class="tm-text">The crew treated our property like their own — clean, respectful, and incredibly skilled. A rare find.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-2.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">Anita B.</span><span class="tm-role">Mansfield, TX</span></span></div>
+          </figure>
+          <figure class="tm-card">
+            <div class="tm-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+            <blockquote class="tm-text">We interviewed five builders. Living Water was the only one that truly listened and delivered exactly what we pictured.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-4.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">Kevin N.</span><span class="tm-role">Fort Worth, TX</span></span></div>
+          </figure>
+          <figure class="tm-card">
+            <div class="tm-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+            <blockquote class="tm-text">A true work of art. The freeform shape and waterline tile are absolutely perfect. Highly recommend.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-6.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">The Patel Family</span><span class="tm-role">North Richland Hills, TX</span></span></div>
+          </figure>
+          <!-- duplicate set -->
+          <figure class="tm-card" aria-hidden="true">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote class="tm-text">The crew treated our property like their own — clean, respectful, and incredibly skilled. A rare find.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-2.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">Anita B.</span><span class="tm-role">Mansfield, TX</span></span></div>
+          </figure>
+          <figure class="tm-card" aria-hidden="true">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote class="tm-text">We interviewed five builders. Living Water was the only one that truly listened and delivered exactly what we pictured.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-4.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">Kevin N.</span><span class="tm-role">Fort Worth, TX</span></span></div>
+          </figure>
+          <figure class="tm-card" aria-hidden="true">
+            <div class="tm-stars">★★★★★</div>
+            <blockquote class="tm-text">A true work of art. The freeform shape and waterline tile are absolutely perfect. Highly recommend.</blockquote>
+            <div class="tm-person"><img class="tm-avatar" src="images/testimonial-6.png" alt="" loading="lazy" /><span class="tm-id"><span class="tm-name">The Patel Family</span><span class="tm-role">North Richland Hills, TX</span></span></div>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+     CONTACT — blue intro band + dark details, then form beside the map
+  ====================================================================== -->
+  <section id="contact">
+
+    <!-- Top band: blue intro | dark contact details -->
+    <div class="contact-top">
+      <div class="contact-top-left reveal fade-up">
+        <p class="eyebrow eyebrow-light">Contact With Us Now</p>
+        <h2>Let's Build Your Backyard Together</h2>
+        <p>If you have any general questions, feel free to reach out! If you want to
+          get a quote or schedule a consultation, please
+          <a href="#quote" class="link">click this link here</a> instead.</p>
+      </div>
+
+      <div class="contact-top-right reveal fade-up">
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <!-- TODO: replace with the real email -->
+          <a href="mailto:info@livingwaterpools.com">info@livingwaterpools.com</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Hot Line</span>
+          <!-- TODO: replace with the real phone number -->
+          <a href="tel:+18175550123">(817) 555-0123</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body: form | map -->
+    <div class="contact-body">
+
+      <!-- Left: form -->
+      <div class="contact-form-col reveal fade-right">
+        <form class="contact-form" action="#" method="POST">
+          <div class="contact-form-row">
+            <div class="contact-field">
+              <label for="contact-name" class="sr-only">Full name</label>
+              <input type="text" id="contact-name" name="name" placeholder="Full name*" autocomplete="name" required>
+            </div>
+            <div class="contact-field">
+              <label for="contact-email" class="sr-only">Email Address</label>
+              <input type="email" id="contact-email" name="email" placeholder="Email Address*" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="contact-form-row">
+            <div class="contact-field">
+              <label for="contact-phone" class="sr-only">Phone Number</label>
+              <input type="tel" id="contact-phone" name="phone" placeholder="Phone Number*" autocomplete="tel" required>
+            </div>
+            <div class="contact-field">
+              <label for="contact-service" class="sr-only">Your Services</label>
+              <select id="contact-service" name="service" required>
+                <option value="" disabled selected>Your Services</option>
+                <option value="pools">New Pools</option>
+                <option value="spas">Spas &amp; Hot Tubs</option>
+                <option value="patios">Patios &amp; Decking</option>
+                <option value="kitchens">Outdoor Kitchens</option>
+                <option value="other">Something Else</option>
+              </select>
+              <svg class="contact-select-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-message" class="sr-only">Message</label>
+            <textarea id="contact-message" name="message" rows="6" placeholder="Message*" required></textarea>
+          </div>
+
+          <button type="submit" class="contact-submit">
+            Send Message
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Right: map + floating service-area card -->
+      <div class="contact-map-col reveal fade-left">
+        <iframe
+          class="contact-map"
+          title="Living Water Pools and Spas service area — Fort Worth &amp; DFW, Texas"
+          src="https://www.google.com/maps?q=Fort+Worth,+Texas&z=10&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <div class="contact-map-card">
+          <span class="contact-map-card-eyebrow">Service Area</span>
+          <p class="contact-map-card-title">Living Water Pools &amp; Spas</p>
+          <p class="contact-map-card-addr">Serving Fort Worth &amp;<br>the DFW Metroplex</p>
+        </div>
+      </div>
+
+    </div>
+    <!-- /contact-body -->
+  </section>
+
+  <!-- =====================================================================
+     FOOTER (white)
+  ====================================================================== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <img src="images/living-water-logo.svg" alt="Living Water Pools and Spas" class="footer-logo-img" />
+          <p>Commercial &amp; custom residential pools and spas, built across Fort Worth and the greater DFW area.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col footer-nav"><h4>Pages</h4><ul><li><a href="#hero">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <div class="footer-col footer-nav"><h4>Services</h4><ul><li><a href="service-new-pools.html">New Pools</a></li><li><a href="service-spas.html">Spas &amp; Hot Tubs</a></li><li><a href="service-patios.html">Patios &amp; Decking</a></li><li><a href="service-outdoor-kitchens.html">Outdoor Kitchens</a></li></ul></div>
+        <div class="footer-col footer-contact"><h4>Get In Touch</h4><address><p>Serving Fort Worth &amp; the DFW Metroplex</p><a href="tel:+18175550123">(817) 555-0123</a><a href="mailto:info@livingwaterpools.com">info@livingwaterpools.com</a></address></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Living Water Pools and Spas. All rights reserved. Designed by MigsFlow Web Design.</p><a href="#" class="footer-privacy">Privacy Policy</a></div>
+    </div>
+  </footer>
+
+  <button id="scrollTop" class="scroll-top-btn" aria-label="Scroll to top"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg></button>
+
+  <script defer src="js/hero-quote.js"></script>
+  <script defer src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,612 @@
+/* ══════════════════════════════════════════════════════════════
+   E-Pools & Construction — styles.css
+   Loaded LAST. Owns only the two EPools-specific sections that are
+   NOT part of the shared Top Knox layout:
+     1. HERO   — 5-image crossfade carousel (eph- prefixed, isolated)
+     2. GALLERY — Reels / Photos tabs
+   Everything else (nav, about, services, projects, testimonials,
+   faq, quote, footer, buttons, tokens) comes from:
+     global.css → nav-hero.css → css/graft.css → css/quote.css
+═══════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════
+   NAVBAR — transparent overlay on the hero, solid on scroll
+   (overrides the shared white sticky navbar from nav-hero.css)
+═══════════════════════════════════════════════ */
+html { scroll-padding-top: 84px; }   /* offset anchor jumps under the fixed nav */
+
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: transparent;
+  border-bottom: none;
+}
+#navbar.is-scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid var(--grey-200);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+/* LW badge (living-water-logo.svg) — a blue disc with the LW/wordmark cut out
+   (transparent knockout). At the TOP (over the dark hero) we flip the disc to
+   white so the mark reads clean; the cut-out letters stay transparent and pick
+   up the dark hero behind them. Once scrolled (white bar) we drop the filter so
+   the normal blue badge shows. */
+.nav-logo-img {
+  height: 60px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);   /* blue disc → white at the top */
+  transition: filter .3s ease;
+}
+#navbar.is-scrolled .nav-logo-img {
+  filter: none;                       /* normal blue badge on the white bar */
+}
+
+/* ══════════════════════════════════════════════
+   FOOTER — white variant (overrides the dark footer in global.css).
+   Applies site-wide (home + service pages) so the footer is consistent.
+═══════════════════════════════════════════════ */
+#footer { background: var(--white); border-top: 1px solid var(--grey-200); }
+.footer-grid { border-bottom-color: var(--grey-200); }
+.footer-col h4 { color: var(--text-primary); }
+.footer-col p { color: var(--text-body); }
+.footer-nav a,
+.footer-contact p,
+.footer-contact a { color: var(--text-body); }
+.footer-nav a:hover,
+.footer-contact a:hover { color: var(--maroon); }
+.footer-social a { background: var(--grey-100); border-color: var(--grey-200); color: var(--text-muted); }
+.footer-social a:hover { background: var(--maroon); border-color: var(--maroon); color: var(--white); }
+.footer-form input[type="email"] { background: var(--grey-50); border-color: var(--grey-200); color: var(--text-primary); }
+.footer-form input[type="email"]::placeholder { color: var(--text-muted); }
+.footer-bottom { border-top: 1px solid var(--grey-200); }
+.footer-bottom p { color: var(--text-muted); }
+.footer-privacy { color: var(--text-primary); }
+.footer-privacy:hover { color: var(--maroon); }
+/* Blue badge shows on the white footer (no white filter needed). */
+.footer-logo-img { filter: none; }
+
+/* ══════════════════════════════════════════════
+   TRUST BAR — overlapping client avatars + social-proof line.
+   Sits at the bottom of the hero quote form and in the service
+   sidebars. Reusable anywhere (shared, loaded on every page).
+═══════════════════════════════════════════════ */
+.trust-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: #55749d;
+  border-radius: 12px;
+  padding: 0.8rem 1.05rem;
+}
+.trust-avatars { display: flex; flex-shrink: 0; }
+.trust-avatars img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  background: #0b1f3a;
+  margin-left: -12px;
+}
+.trust-avatars img:first-child { margin-left: 0; }
+.trust-text { margin: 0; display: flex; flex-direction: column; line-height: 1.25; }
+.trust-text-1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #fff;
+}
+.trust-text-2 { font-size: 0.78rem; color: rgba(255, 255, 255, 0.7); }
+
+/* Text wordmark placeholder (until the real logo image is dropped in):
+   white over the transparent hero, dark once the bar turns white on scroll. */
+#navbar .nav-logo { color: var(--white); transition: color .3s ease; }
+#navbar .nav-logo span { color: var(--maroon-lt); }
+#navbar.is-scrolled .nav-logo { color: var(--text-primary); }
+#navbar.is-scrolled .nav-logo span { color: var(--maroon); }
+
+/* Links white over the hero, dark once scrolled */
+#navbar .nav-links > li > a { color: var(--white); }
+#navbar.is-scrolled .nav-links > li > a { color: var(--text-primary); }
+#navbar .nav-links > li > a:hover,
+#navbar .nav-links > li > a.is-active { color: var(--maroon-lt); }
+#navbar.is-scrolled .nav-links > li > a:hover,
+#navbar.is-scrolled .nav-links > li > a.is-active { color: var(--maroon); }
+
+/* Hamburger lines white over hero, dark once scrolled */
+#navbar .nav-hamburger span { background: var(--white); }
+#navbar.is-scrolled .nav-hamburger span { background: var(--text-primary); }
+
+/* ══════════════════════════════════════════════
+   PENDING-IMAGE PLACEHOLDER
+   Add `img-ph` to any <img> whose real photo isn't in yet. Shows a soft
+   aqua block sized by the element's own aspect-ratio/attrs and hides the
+   broken-image glyph. The moment the real file lands at the referenced
+   path, the photo paints over this — no markup change needed. Remove the
+   class once all photos are in (optional; harmless to leave).
+═══════════════════════════════════════════════ */
+img.img-ph {
+  background: linear-gradient(135deg, #d9eff7 0%, #a7d8e8 55%, #7cc7de 100%);
+  color: transparent;
+  font-size: 0;
+}
+
+/* ══════════════════════════════════════════════
+   HERO  (isolated under #hero.eph-hero so it never
+   collides with Top Knox's own .hero-* rules)
+═══════════════════════════════════════════════ */
+#hero.eph-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  /* Fallback shown while the hero photos aren't in yet — once
+     images/hero/hero-1..5.jpg exist the slides cover this gradient. */
+  background: linear-gradient(135deg, #0F3372 0%, #174799 55%, #4FA3E0 100%);
+}
+
+.eph-carousel { position: absolute; inset: 0; z-index: 0; }
+.eph-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.4s ease;
+  will-change: opacity, transform;
+}
+.eph-slide.is-active { opacity: 1; }
+/* Ken-Burns drift — odd slides zoom OUT, even slides zoom IN */
+.eph-slide.is-active:nth-child(odd)  { animation: eph-zoom-out 7s ease-out forwards; }
+.eph-slide.is-active:nth-child(even) { animation: eph-zoom-in  7s ease-out forwards; }
+@keyframes eph-zoom-out { from { transform: scale(1.14); } to { transform: scale(1); } }
+@keyframes eph-zoom-in  { from { transform: scale(1);    } to { transform: scale(1.14); } }
+
+.eph-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(9, 32, 51, 0.62) 0%, rgba(9, 32, 51, 0.40) 40%, rgba(9, 32, 51, 0.80) 100%),
+    radial-gradient(120% 80% at 50% 40%, transparent 25%, rgba(9, 32, 51, 0.48) 100%);
+}
+
+.eph-inner { position: relative; z-index: 2; }
+.eph-content {
+  max-width: 780px;
+  margin: 0 auto;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(24px);
+  animation: eph-rise .9s ease .2s forwards;
+}
+@keyframes eph-rise { to { opacity: 1; transform: none; } }
+
+.eph-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-size: .85rem;
+  color: var(--maroon-lt);
+  margin: 0 0 1rem;
+}
+.eph-heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 6.5vw, 4.6rem);
+  line-height: 1.02;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+  color: var(--white);
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.35);
+}
+.eph-heading .accent { color: var(--maroon-lt); }
+
+.eph-sub {
+  font-family: var(--font-body);
+  font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 620px;
+  margin: 0 auto 2.2rem;
+}
+.eph-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.eph-dots {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: .6rem;
+}
+.eph-dot {
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  padding: 0;
+  transition: background .25s ease, transform .25s ease, border-color .25s ease;
+}
+.eph-dot.is-active { background: var(--maroon-lt); border-color: var(--maroon-lt); transform: scale(1.15); }
+
+@media (prefers-reduced-motion: reduce) {
+  .eph-slide.is-active:nth-child(odd),
+  .eph-slide.is-active:nth-child(even) { animation: none; transform: scale(1); }
+  .eph-content { animation: 
+    none; opacity: 1; transform: none; }
+}
+
+/* ══════════════════════════════════════════════
+   PROJECTS — Instagram Reels tab
+   The reels live inside the Projects section as an extra filter tab.
+   #reelsPanel is hidden until .projects-grid-wrap gets .show-reels
+   (toggled in main.js when the "Instagram Reels" filter is active).
+═══════════════════════════════════════════════ */
+#reelsPanel { display: none; animation: eph-panel-fade .4s ease; }
+.projects-grid-wrap.show-reels #projectsGrid,
+.projects-grid-wrap.show-reels .projects-nav { display: none; }
+.projects-grid-wrap.show-reels #reelsPanel { display: grid; }
+@keyframes eph-panel-fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* Reels — vertical 9:16 cards */
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+@media (min-width: 768px) { .reels-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.reel-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 9 / 16;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #dceefb, #eef6fc);
+  border: 1px solid var(--grey-200);
+  box-shadow: 0 18px 45px rgba(23, 71, 153, 0.12);
+}
+.reel-card iframe,
+.reel-card .instagram-media { width: 100% !important; height: 100% !important; min-width: 0 !important; }
+
+/* Autoplaying reel video fills the 9:16 card */
+.reel-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Instagram badge pinned to the top of each reel */
+.reel-ig-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+  transition: opacity var(--transition);
+}
+.reel-ig-badge svg { width: 20px; height: 20px; }
+
+/* "View Instagram" overlay — fades in on hover / press / keyboard focus */
+.reel-hover {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(9, 32, 51, 0.35), rgba(9, 32, 51, 0.72));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.reel-hover svg { width: 40px; height: 40px; }
+.reel-hover-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+/* Reveal on hover, tap-and-hold (active) and keyboard focus; hide the small
+   corner badge while the full overlay is showing to avoid doubling up. */
+.reel-card:hover .reel-hover,
+.reel-card:focus-visible .reel-hover,
+.reel-card:active .reel-hover { opacity: 1; }
+.reel-card:hover .reel-ig-badge,
+.reel-card:focus-visible .reel-ig-badge,
+.reel-card:active .reel-ig-badge { opacity: 0; }
+.reel-card:focus-visible { outline: 2px solid var(--maroon-lt); outline-offset: 3px; }
+.reel-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  color: var(--maroon);
+}
+.reel-placeholder svg { width: 46px; height: 46px; opacity: .8; }
+.reel-placeholder span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: .9rem;
+  color: var(--text-muted);
+}
+
+/* ══════════════════════════════════════════════
+   ABOUT — callout under the image (icon tagline + rating)
+═══════════════════════════════════════════════ */
+/* Anchor the corner badge to the image only (not the whole column,
+   which now also holds the callout below). */
+.about-img-frame { position: relative; }
+
+.about-hook {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.about-hook-row { display: flex; align-items: center; gap: .85rem; }
+
+/* Overlapping circles: grey dot + blue phone badge */
+.about-hook-icons {
+  position: relative;
+  flex-shrink: 0;
+  width: 62px;
+  height: 40px;
+}
+.about-hook-dot {
+  position: absolute;
+  left: 0; top: 1px;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--grey-200);
+}
+.about-hook-phone {
+  position: absolute;
+  left: 22px; top: 1px;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--maroon);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px rgba(23, 71, 153, 0.35);
+}
+.about-hook-phone svg { width: 18px; height: 18px; }
+
+.about-hook-text {
+  margin: 0;
+  font-size: .98rem;
+  line-height: 1.45;
+  color: var(--text-body);
+}
+.about-hook-text a {
+  color: var(--maroon);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.about-hook-text a:hover { color: var(--maroon-dk); }
+
+/* Rating row */
+.about-hook-rating { gap: .6rem; flex-wrap: wrap; }
+.about-hook-score {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+.about-hook-stars { display: inline-flex; gap: 2px; color: #FBB03B; }
+.about-hook-stars svg { width: 22px; height: 22px; }
+.about-hook-reviews {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+/* ══════════════════════════════════════════════
+   FAQ — enable the shared wave-lines background
+   (graft.css only wires the vars/positioning for #about & #project-series)
+═══════════════════════════════════════════════ */
+#faq {
+  position: relative;
+  overflow: hidden;
+  --wave-color: rgba(23, 71, 153, 0.05);   /* line color/opacity */
+  --wave-width: 1.5px;
+}
+#faq > .wave-lines { z-index: 0; }
+#faq > .container  { position: relative; z-index: 1; }
+
+/* ══════════════════════════════════════════════
+   PROJECTS — enable the shared wave-lines background
+   (mirrors the FAQ wiring: the SVG already sits in the markup,
+   this just defines the vars + positioning so it renders)
+═══════════════════════════════════════════════ */
+#projects {
+  position: relative;
+  overflow: hidden;
+  --wave-color: rgba(23, 71, 153, 0.05);   /* line color/opacity */
+  --wave-width: 1.5px;
+}
+#projects > .wave-lines { z-index: 0; }
+#projects > .container  { position: relative; z-index: 1; }
+
+/* ══════════════════════════════════════════════
+   CONTACT & QUOTE — side-by-side forms + hours band
+═══════════════════════════════════════════════ */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* #contact uses the Top Knox map-contact layout (nav-hero.css): a blue intro
+   band + dark details on top, then a white form beside the map. No override
+   needed here — leaving the section white so the form area reads clean. */
+/* The hero quote wizard now owns #quote. Keep this wrapper transparent
+   (the .hq card carries its own white background) and override graft.css's
+   leftover navy #quote background. scroll-margin clears the fixed navbar. */
+#quote {
+  scroll-margin-top: 100px;
+  background: transparent;
+  background-image: none;
+}
+
+.contact-head { text-align: center; max-width: 680px; margin: 0 auto 2.75rem; }
+.contact-head .eyebrow { justify-content: center; color: var(--maroon-lt); }
+.contact-head .eyebrow::before { display: none; }
+.contact-head h2 { color: var(--white); }
+.contact-head > p { color: rgba(255, 255, 255, 0.85); margin-top: .5rem; }
+.contact-head > p a { color: var(--maroon-lt); font-weight: 600; }
+
+/* Two-column layout: general contact (left) + quote form (right) */
+.connect-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: start; }
+@media (min-width: 940px) {
+  .connect-grid { grid-template-columns: 1fr 1.15fr; gap: 1.75rem; }
+}
+
+.connect-card {
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  border-radius: 18px;
+  padding: 1.75rem;
+  box-shadow: 0 18px 45px rgba(23, 71, 153, 0.07);
+}
+@media (min-width: 768px) { .connect-card { padding: 2.25rem; } }
+.connect-card--accent { border-top: 4px solid var(--maroon); }
+.connect-card-title { font-size: clamp(1.3rem, 2.4vw, 1.7rem); color: var(--text-primary); margin-bottom: .35rem; }
+.connect-card-sub { color: var(--text-muted); margin-bottom: 1.5rem; font-size: .98rem; }
+
+/* Shared form fields */
+.connect-form, .quote-form { display: flex; flex-direction: column; gap: 1.05rem; }
+.field { display: flex; flex-direction: column; gap: .4rem; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
+.field > label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: .9rem;
+  color: var(--text-primary);
+}
+.field .req { color: var(--maroon); }
+.field .opt { color: var(--text-muted); font-weight: 400; }
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-primary);
+  padding: .85rem 1rem;
+  border: 1px solid var(--grey-200);
+  border-radius: 12px;
+  background: var(--white);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.field textarea { resize: vertical; min-height: 110px; }
+.field input::placeholder,
+.field textarea::placeholder { color: var(--grey-400); }
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(23, 71, 153, 0.15);
+}
+
+/* Select with chevron */
+.select-wrap { position: relative; }
+.select-wrap select { appearance: none; -webkit-appearance: none; padding-right: 2.6rem; cursor: pointer; }
+.select-wrap svg {
+  position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+  width: 18px; height: 18px; color: var(--text-muted); pointer-events: none;
+}
+
+/* Checkboxes */
+.checks-field { border: none; padding: 0; margin: 0; }
+.checks-field legend {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: .9rem;
+  color: var(--text-primary);
+  margin-bottom: .65rem;
+  padding: 0;
+}
+.checks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem .9rem; }
+@media (max-width: 520px) { .checks-grid { grid-template-columns: 1fr; } }
+.check { display: flex; align-items: center; gap: .55rem; font-size: .95rem; color: var(--text-body); cursor: pointer; }
+.check input { width: 18px; height: 18px; accent-color: var(--maroon); flex-shrink: 0; }
+
+.connect-submit { align-self: flex-start; margin-top: .4rem; }
+.connect-submit--full { align-self: stretch; justify-content: center; }
+
+/* ── Company hours, directly under the contact form (vertical list) ── */
+.contact-hours {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--grey-200);
+}
+.contact-hours-head { display: flex; align-items: center; gap: .75rem; margin-bottom: .85rem; }
+.contact-hours-head h4 { margin: 0; font-size: 1.15rem; color: var(--text-primary); }
+.contact-status {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: .25rem .7rem;
+  border-radius: 10px;
+}
+.contact-status.is-open   { background: rgba(30, 158, 87, 0.12); color: #1e9e57; }
+.contact-status.is-closed { background: rgba(208, 52, 44, 0.10); color: #d0342c; }
+
+.hours-list { list-style: none; display: flex; flex-direction: column; }
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .55rem .6rem;
+  border-radius: 8px;
+  color: var(--text-body);
+  border-bottom: 1px solid var(--grey-100);
+}
+.hours-list li:last-child { border-bottom: none; }
+.hours-list .hours-day { font-family: var(--font-display); font-weight: 600; color: var(--text-primary); min-width: 3rem; }
+.hours-list .hours-time { color: var(--text-body); }
+.hours-list li.is-today { background: rgba(23, 71, 153, 0.08); }
+.hours-list li.is-today .hours-day { color: var(--maroon); }
+.hours-list li.is-today .hours-time { color: var(--text-primary); font-weight: 600; }

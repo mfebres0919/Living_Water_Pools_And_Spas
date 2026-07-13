@@ -1,0 +1,325 @@
+/* ══════════════════════════════════════════════════════════════
+   SERVICE DETAIL PAGES — Living Water Pools and Spas
+   Two-column detail layout (main + sidebar), 3-step process,
+   "Let's Talk" CTA band. Brand blue in place of the mockup's orange.
+   Loaded only on service-*.html pages.
+═══════════════════════════════════════════════════════════════ */
+
+.svc-detail { background: var(--white); }
+
+.svc-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+@media (min-width: 992px) {
+  .svc-layout {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+/* ── Main column ────────────────────────────── */
+.svc-main-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin-bottom: 2rem;
+}
+.svc-main h2 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  margin-bottom: 1.25rem;
+}
+.svc-main > p { margin-bottom: 1.25rem; }
+
+/* Bulleted list with brand marker */
+.svc-bullets {
+  list-style: none;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.svc-bullets li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+.svc-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--maroon);
+}
+
+/* ── Services Benefits (image + checklist) ──── */
+.svc-benefits {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+@media (min-width: 640px) {
+  .svc-benefits { grid-template-columns: 240px 1fr; }
+}
+.svc-benefits-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+.svc-benefits h3 { margin-bottom: 0.85rem; }
+.svc-benefits p { margin-bottom: 1rem; }
+
+.svc-check {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.svc-check li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.svc-check svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--maroon);
+}
+
+/* ── 3 Simple Steps ─────────────────────────── */
+.svc-steps-head { margin: 2.5rem 0 0.75rem; }
+.svc-steps-intro { margin-bottom: 2rem; }
+.svc-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 640px) {
+  .svc-steps { grid-template-columns: repeat(3, 1fr); }
+}
+.svc-step {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  border-radius: 12px;
+  padding: 2.25rem 1.25rem 1.5rem;
+  margin-top: 1.75rem;
+  box-shadow: 0 12px 30px rgba(23, 71, 153, 0.06);
+}
+.svc-step-icon {
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--maroon);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.svc-step-icon svg { width: 24px; height: 24px; }
+.svc-step h4 { margin-bottom: 0.5rem; }
+.svc-step p { font-size: 0.9rem; line-height: 1.6; margin: 0; }
+
+/* ── Sidebar ────────────────────────────────── */
+.svc-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Services list */
+.svc-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.svc-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  background: var(--grey-50);
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  transition: background var(--transition), color var(--transition);
+}
+.svc-nav a svg { width: 18px; height: 18px; flex-shrink: 0; transition: transform var(--transition); }
+.svc-nav a:hover,
+.svc-nav a.is-active {
+  background: var(--maroon);
+  border-color: var(--maroon);
+  color: var(--white);
+}
+.svc-nav a:hover svg { transform: translateX(3px); }
+
+/* Need Help card */
+.svc-help {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  color: var(--white);
+  isolation: isolate;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.svc-help-bg { position: absolute; inset: 0; z-index: -2; }
+.svc-help-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.svc-help::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(15,51,114,0.55), rgba(11,32,66,0.92));
+}
+.svc-help h3 { color: var(--white); margin-bottom: 0.75rem; font-size: 1.3rem; }
+.svc-help-phone {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+}
+.svc-help .btn-primary { align-self: flex-start; }
+
+/* Brochure box */
+.svc-brochure-head {
+  background: var(--maroon);
+  color: var(--white);
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  padding: 0.85rem;
+  border-radius: 8px 8px 0 0;
+}
+.svc-brochure-list {
+  border: 1px solid var(--grey-200);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+}
+.svc-brochure-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.15rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: background var(--transition);
+}
+.svc-brochure-list a + a { border-top: 1px solid var(--grey-200); }
+.svc-brochure-list a:hover { background: var(--grey-50); }
+.svc-brochure-list .svc-brochure-file {
+  width: 26px; height: 26px; flex-shrink: 0; color: var(--maroon);
+}
+.svc-brochure-list .svc-brochure-dl { margin-left: auto; width: 18px; height: 18px; color: var(--text-muted); }
+
+/* ══════════════════════════════════════════════
+   "LET'S TALK" CTA BAND
+═══════════════════════════════════════════════ */
+.lets-talk {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+  padding: 5rem 0;
+  color: var(--white);
+}
+.lets-talk-bg { position: absolute; inset: 0; z-index: -2; }
+.lets-talk-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lets-talk::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(10,20,40,0.82), rgba(10,20,40,0.9));
+}
+.lets-talk-eyebrow {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 0.5rem;
+}
+.lets-talk h2 {
+  color: var(--white);
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  margin-bottom: 1.5rem;
+}
+.lets-talk-line {
+  width: 120px;
+  height: 3px;
+  background: var(--maroon-lt);
+  margin: 0 auto 2rem;
+  border-radius: 2px;
+}
+
+/* ══════════════════════════════════════════════
+   STICKY SIDEBAR
+   On large screens the main column is much taller than the sidebar, so as
+   you scroll the right side would sit empty and white. Pinning the sidebar
+   keeps it in view the whole way down. (align-self:start so the sticky item
+   doesn't stretch to the row height.) top clears the fixed navbar.
+═══════════════════════════════════════════════ */
+@media (min-width: 992px) {
+  .svc-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   STAGGERED FADE-IN  (driven by main.js)
+   Each [data-fade] section reveals its elements one-by-one when it scrolls
+   into view. Hiding is gated behind html.fade-on, which a tiny inline <head>
+   script only adds when motion is allowed — so with JS off or reduced-motion
+   on, nothing is ever hidden (progressive enhancement, no-JS safe).
+═══════════════════════════════════════════════ */
+.fade-on [data-fade] :is(
+  .page-hero-content > h1, .page-hero-breadcrumb,
+  .svc-main-img, .svc-main > h2, .svc-main > p, .svc-bullets, .svc-benefits,
+  .svc-steps-head, .svc-steps-intro, .svc-step,
+  .svc-nav > li, .svc-help, .svc-brochure,
+  .lets-talk-eyebrow, .lets-talk h2, .lets-talk-line, .lets-talk .btn-primary
+) {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 2s ease, transform 2s ease;
+  will-change: opacity, transform;
+}
+.fade-on [data-fade] .is-in {
+  opacity: 1 !important;
+  transform: none !important;
+}

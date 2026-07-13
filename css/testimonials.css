@@ -1,0 +1,145 @@
+/* ══════════════════════════════════════════════════════════════
+   TESTIMONIALS — Living Water Pools and Spas
+   Cloned from My Riviera Pool's 3-column vertical marquee, retinted
+   to this theme: blue stars + blue avatar rings (var(--maroon-lt)).
+   Pure CSS animation (no JS). Loaded on index.html.
+═══════════════════════════════════════════════════════════════ */
+.tm-section {
+  position: relative;
+  overflow: hidden;
+  padding: 5.5rem 0 0;
+  background: #0b1f3a;
+}
+@media (min-width: 768px) { .tm-section { padding-top: 7rem; } }
+
+/* Photo background + dark overlay so text stays legible */
+.tm-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0b1f3a;
+  z-index: 0;
+}
+.tm-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg,
+    rgba(7,17,33,0.86) 0%,
+    rgba(7,17,33,0.60) 22%,
+    rgb(7, 17, 33) 78%,
+    rgba(7,17,33,0.97) 100%);
+}
+.tm-section > .container { position: relative; z-index: 2; }
+
+/* ── Header ── */
+.tm-head { text-align: center; max-width: 680px; margin: 0 auto; }
+.tm-head .eyebrow { justify-content: center; color: var(--maroon-lt); }
+.tm-head .eyebrow::before { display: none; }
+.tm-head h2 {
+  color: var(--white);
+  margin: 0.5rem 0 0.9rem;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+}
+.tm-head h2 .accent { color: var(--maroon-lt); }
+.tm-sub {
+  color: rgba(255,255,255,0.82);
+  line-height: 1.7;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.5);
+}
+
+/* ── The three columns ── */
+.tm-columns {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  height: clamp(560px, 84vh, 800px);
+  overflow: hidden;
+  padding: 0 1.25rem;
+  max-width: 1240px;
+  margin: 2.5rem auto 0;
+  width: 100%;
+}
+/* Fade the top & bottom where cards scroll in/out */
+.tm-columns::before,
+.tm-columns::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: clamp(80px, 15%, 150px);
+  z-index: 4;
+  pointer-events: none;
+}
+.tm-columns::before { top: 0;    background: linear-gradient(180deg, #0b1f3a 0%, rgba(11,31,58,0.7) 45%, rgba(11,31,58,0) 100%); }
+.tm-columns::after  { bottom: 0; background: linear-gradient(0deg,   #0b1f3a 0%, rgba(11, 31, 58, 0.451) 45%, rgba(11, 31, 58, 0.408) 100%); }
+@media (min-width: 640px)  { .tm-columns { grid-template-columns: repeat(2, 1fr); padding: 0 2rem; } }
+@media (min-width: 1000px) { .tm-columns { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+
+.tm-col--2, .tm-col--3 { display: none; }
+@media (min-width: 640px)  { .tm-col--2 { display: block; } }
+@media (min-width: 1000px) { .tm-col--3 { display: block; } }
+.tm-col { overflow: hidden; }
+
+.tm-col-track {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  will-change: transform;
+}
+.tm-col-track--a { animation: tm-scroll-up 46s linear infinite; }
+.tm-col-track--b { animation: tm-scroll-up 66s linear infinite; }
+.tm-col-track--c { animation: tm-scroll-up 56s linear infinite; }
+.tm-col:hover .tm-col-track { animation-play-state: paused; }
+
+@keyframes tm-scroll-up {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+@media (prefers-reduced-motion: reduce) { .tm-col-track { animation: none !important; } }
+
+/* ── Cards ── */
+.tm-card {
+  background: rgba(13, 28, 51, 0.72);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 1.5rem 1.6rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+.tm-stars {
+  color: var(--maroon-lt);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.85rem;
+}
+.tm-text {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.97rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+.tm-person { display: flex; align-items: center; gap: 0.8rem; }
+.tm-avatar {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #0b1f3a;
+  border: 2px solid var(--maroon-lt);   /* blue ring — theme accent */
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.25);
+}
+.tm-id { display: flex; flex-direction: column; min-width: 0; }
+.tm-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--white);
+  line-height: 1.2;
+}
+.tm-role { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-top: 0.1rem; }

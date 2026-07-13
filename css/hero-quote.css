@@ -1,0 +1,252 @@
+/* ══════════════════════════════════════════════════════════════
+   HERO QUOTE WIZARD — Living Water Pools and Spas
+   Turns the hero into two columns: copy/buttons on the left, a
+   multi-step (progress-bar) quote form on the right. The form
+   branches by service; each branch always asks budget. See
+   js/hero-quote.js. Loaded AFTER css/styles.css so it overrides
+   the centered hero layout.
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Two-column hero layout ── */
+#hero.eph-hero {
+  text-align: left;
+  min-height: auto;
+  padding: 8.5rem 0 3.5rem;      /* clears the fixed navbar */
+  align-items: center;
+}
+@media (min-width: 992px) {
+  #hero.eph-hero { min-height: 100vh; padding: 6rem 0 4rem; }
+}
+
+.eph-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .eph-inner {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+}
+
+.eph-content { margin: 0; max-width: 640px; }
+.eph-actions { justify-content: flex-start; }
+
+/* ── The wizard card ── */
+.eph-quote { width: 100%; }
+
+/* Trust bar under the form — match the card's width/alignment */
+.eph-quote .trust-bar { width: 100%; max-width: 460px; margin: 0.9rem auto 0; }
+@media (min-width: 992px) {
+  .eph-quote .trust-bar { margin: 0.9rem 0 0 auto; }
+}
+
+.hq {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 16px;
+  padding: 1.6rem 1.5rem 1.6rem;
+  box-shadow: 0 30px 80px rgba(9, 20, 40, 0.45);
+  backdrop-filter: blur(2px);
+}
+@media (min-width: 992px) {
+  .hq { margin: 0 0 0 auto; }   /* hug the right edge of its column */
+}
+
+/* Header + progress */
+.hq-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+.hq-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+.hq-step {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--maroon);
+  white-space: nowrap;
+}
+.hq-progress {
+  height: 6px;
+  background: var(--grey-200);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.hq-progress-fill {
+  height: 100%;
+  width: 14%;
+  background: var(--maroon);
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+/* Body */
+.hq-body { min-height: 246px; }
+.hq-q {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin: 1.15rem 0 1rem;
+}
+
+.hq-options { display: flex; flex-direction: column; gap: 0.6rem; }
+.hq-opt {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--grey-200);
+  border-radius: 10px;
+  background: var(--white);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.hq-opt:hover { border-color: var(--maroon); background: var(--grey-50); }
+.hq-opt.is-sel {
+  border-color: var(--maroon);
+  background: var(--maroon);
+  color: var(--white);
+}
+/* Multi-select get a little check chip on the right */
+.hq-opt-multi { padding-right: 2.4rem; }
+.hq-opt-multi::after {
+  content: '';
+  position: absolute;
+  right: 0.9rem; top: 50%; transform: translateY(-50%);
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--grey-300);
+  border-radius: 5px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.hq-opt-multi.is-sel::after {
+  background: var(--white);
+  border-color: var(--white);
+}
+.hq-opt-multi.is-sel::before {
+  content: '';
+  position: absolute;
+  right: 1.4rem; top: 46%;
+  width: 5px; height: 9px;
+  border: solid var(--maroon);
+  border-width: 0 2px 2px 0;
+  transform: translateY(-50%) rotate(45deg);
+  z-index: 1;
+}
+
+/* Contact fields */
+.hq-fields { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 1rem; }
+.hq-field span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+.hq-field input {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1.5px solid var(--grey-200);
+  border-radius: 9px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+.hq-field input:focus { outline: none; border-color: var(--maroon); }
+.hq-error {
+  font-size: 0.78rem;
+  color: #c0392b;
+  margin: 0.25rem 0 0.5rem;
+  min-height: 1rem;
+}
+
+/* Footer nav */
+.hq-foot {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+}
+/* Our buttons set an explicit display, which would otherwise defeat the
+   [hidden] attribute the JS toggles — force hidden to win. */
+.hq-foot [hidden] { display: none !important; }
+.hq-back {
+  background: none;
+  border: none;
+  padding: 0.4rem 0.2rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+.hq-back:hover { color: var(--maroon); }
+.hq-next, .hq-submit {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.72rem 1.4rem;
+  border-radius: 9px;
+  background: var(--maroon);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+.hq-next:hover, .hq-submit:hover { background: var(--maroon-dk); }
+.hq-submit { width: 100%; justify-content: center; margin: 0.25rem 0 0; }
+
+/* Success state */
+.hq-done { text-align: center; padding: 1.75rem 0.5rem; }
+.hq-done-icon {
+  width: 56px; height: 56px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--maroon);
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+}
+.hq-done-icon svg { width: 28px; height: 28px; }
+.hq-done h3 { font-size: 1.4rem; margin-bottom: 0.6rem; }
+.hq-done p { font-size: 0.95rem; color: var(--text-body); margin-bottom: 1.25rem; }
+.hq-restart {
+  background: none;
+  border: 1.5px solid var(--grey-200);
+  border-radius: 9px;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.hq-restart:hover { border-color: var(--maroon); color: var(--maroon); }
+
+/* Step transition */
+.hq-body.is-swapping { opacity: 0; transform: translateY(8px); }
+.hq-body { transition: opacity 0.2s ease, transform 0.2s ease; }
