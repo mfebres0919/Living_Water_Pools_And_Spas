@@ -29,8 +29,22 @@
         <ul class="nav-links">
           <li><a href="index.html#hero">Home</a></li>
           <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#services" class="is-active">Services</a></li>
+          <li>
+            <button class="nav-drop-toggle" aria-expanded="false" aria-haspopup="true">
+              Services
+              <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <ul class="nav-dropdown">
+              <li><a href="service-new-pools.html">New Pools</a></li>
+              <li><a href="service-spas.html">Spas &amp; Hot Tubs</a></li>
+              <li><a href="service-patios.html">Patios &amp; Decking</a></li>
+              <li><a href="service-outdoor-kitchens.html">Outdoor Kitchens</a></li>
+              <li><a href="index.html#services">All Services</a></li>
+            </ul>
+          </li>
           <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index.html#financing">Financing</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </nav>
@@ -47,8 +61,22 @@
         <ul>
           <li><a href="index.html#hero">Home</a></li>
           <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#services">Services</a></li>
+          <li>
+            <button class="nav-drop-toggle" aria-expanded="false" aria-haspopup="true">
+              Services
+              <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <ul class="nav-sub">
+              <li><a href="service-new-pools.html">New Pools</a></li>
+              <li><a href="service-spas.html">Spas &amp; Hot Tubs</a></li>
+              <li><a href="service-patios.html">Patios &amp; Decking</a></li>
+              <li><a href="service-outdoor-kitchens.html">Outdoor Kitchens</a></li>
+              <li><a href="index.html#services">All Services</a></li>
+            </ul>
+          </li>
           <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index.html#financing">Financing</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
         <div class="nav-drawer-cta">
@@ -154,18 +182,13 @@
             </a>
           </div>
 
-          <div class="svc-brochure">
-            <div class="svc-brochure-head">Brochure</div>
+                    <div class="svc-brochure">
+            <div class="svc-brochure-head">Take It With You</div>
             <div class="svc-brochure-list">
-              <!-- TODO: link real PDFs when available -->
-              <a href="#">
+              <!-- Saves this service page as a PDF via the browser print dialog -->
+              <a href="#" onclick="window.print();return false;">
                 <svg class="svc-brochure-file" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path stroke-linecap="round" stroke-linejoin="round" d="M14 2v6h6"/></svg>
-                Download Brochure
-                <svg class="svc-brochure-dl" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
-              </a>
-              <a href="#">
-                <svg class="svc-brochure-file" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path stroke-linecap="round" stroke-linejoin="round" d="M14 2v6h6"/></svg>
-                Company Profile
+                Download Information
                 <svg class="svc-brochure-dl" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
               </a>
             </div>

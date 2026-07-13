@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/hero-quote.css" />
   <link rel="stylesheet" href="css/testimonials.css" />
+  <link rel="stylesheet" href="css/financing.css" />
 </head>
 <body>
 
@@ -34,8 +35,21 @@
         <ul class="nav-links">
           <li><a href="#hero" class="is-active">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
+          <li>
+            <button class="nav-drop-toggle" aria-expanded="false" aria-haspopup="true">
+              Services
+              <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <ul class="nav-dropdown">
+              <li><a href="service-new-pools.html">New Pools</a></li>
+              <li><a href="service-spas.html">Spas &amp; Hot Tubs</a></li>
+              <li><a href="service-patios.html">Patios &amp; Decking</a></li>
+              <li><a href="service-outdoor-kitchens.html">Outdoor Kitchens</a></li>
+              <li><a href="#services">All Services</a></li>
+            </ul>
+          </li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#financing">Financing</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -58,8 +72,21 @@
         <ul>
           <li><a href="#hero" class="is-active">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
+          <li>
+            <button class="nav-drop-toggle" aria-expanded="false" aria-haspopup="true">
+              Services
+              <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <ul class="nav-sub">
+              <li><a href="service-new-pools.html">New Pools</a></li>
+              <li><a href="service-spas.html">Spas &amp; Hot Tubs</a></li>
+              <li><a href="service-patios.html">Patios &amp; Decking</a></li>
+              <li><a href="service-outdoor-kitchens.html">Outdoor Kitchens</a></li>
+              <li><a href="#services">All Services</a></li>
+            </ul>
+          </li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#financing">Financing</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -104,8 +131,8 @@
           engineered to draw people in and last for decades.
         </p>
         <div class="eph-actions">
-          <a href="#quote" class="btn-primary">
-            Get Your Free Quote
+          <a href="#financing" class="btn-primary">
+            Financing Options
             <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
             </svg>
@@ -469,52 +496,72 @@
       <div class="projects-grid-wrap">
         <div class="projects-grid" id="projectsGrid">
 
+          <!-- NEW POOLS -->
           <div class="project-card" data-category="pools" data-img="images/gallery/gallery-7.jpg" data-title="Modern Geometric Pool" data-location="Southlake, TX">
             <picture><img src="images/gallery/gallery-7.jpg" alt="Modern geometric pool — Southlake, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
             <div class="project-card-overlay"></div>
             <div class="project-card-info"><h4>Modern Geometric Pool</h4><p>Southlake, TX</p></div>
           </div>
-
           <div class="project-card" data-category="pools" data-img="images/gallery/gallery-8.jpg" data-title="Pool &amp; Spa with Fountains" data-location="Keller, TX">
             <picture><img src="images/gallery/gallery-8.jpg" alt="Pool and spa with fountains — Keller, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
             <div class="project-card-overlay"></div>
             <div class="project-card-info"><h4>Pool &amp; Spa with Fountains</h4><p>Keller, TX</p></div>
           </div>
+          <div class="project-card" data-category="pools" data-img="images/hero/hero-1.jpg" data-title="Night Pool &amp; Fire Feature" data-location="Fort Worth, TX">
+            <picture><img src="images/hero/hero-1.jpg" alt="Night pool with fire feature — Fort Worth, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Night Pool &amp; Fire Feature</h4><p>Fort Worth, TX</p></div>
+          </div>
 
+          <!-- SPAS -->
           <div class="project-card" data-category="spas" data-img="images/gallery/gallery-5.jpg" data-title="Mosaic Spillover Spa" data-location="Colleyville, TX">
             <picture><img src="images/gallery/gallery-5.jpg" alt="Mosaic-tile spillover spa — Colleyville, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
             <div class="project-card-overlay"></div>
             <div class="project-card-info"><h4>Mosaic Spillover Spa</h4><p>Colleyville, TX</p></div>
           </div>
+          <div class="project-card" data-category="spas" data-img="images/hero/hero-2.jpg" data-title="Spa with Bubblers" data-location="Arlington, TX">
+            <picture><img src="images/hero/hero-2.jpg" alt="Spa with bubblers and fountains — Arlington, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Spa with Bubblers</h4><p>Arlington, TX</p></div>
+          </div>
+          <div class="project-card" data-category="spas" data-img="images/hero/hero-4.jpg" data-title="Raised Spa &amp; Pergola" data-location="Grapevine, TX">
+            <picture><img src="images/hero/hero-4.jpg" alt="Raised spa beside a pergola — Grapevine, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Raised Spa &amp; Pergola</h4><p>Grapevine, TX</p></div>
+          </div>
 
+          <!-- PATIOS -->
           <div class="project-card" data-category="patios" data-img="images/gallery/gallery-6.jpg" data-title="Pool, Spa &amp; Pergola" data-location="Grapevine, TX">
-            <picture><img src="images/hero/hero-5.jpg" alt="Pool, spa and pergola — Grapevine, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <picture><img src="images/gallery/gallery-6.jpg" alt="Pool, spa and pergola — Grapevine, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
             <div class="project-card-overlay"></div>
             <div class="project-card-info"><h4>Pool, Spa &amp; Pergola</h4><p>Grapevine, TX</p></div>
           </div>
-
-          <div class="project-card" data-category="pools" data-img="images/gallery/gallery-6.jpg" data-title="Freeform Backyard Pool" data-location="Fort Worth, TX">
-            <picture><img src="images/gallery/gallery-6.jpg" alt="Freeform backyard pool — Fort Worth, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
-            <div class="project-card-overlay"></div>
-            <div class="project-card-info"><h4>Freeform Backyard Pool</h4><p>Fort Worth, TX</p></div>
-          </div>
-
-          <div class="project-card" data-category="spas" data-img="images/gallery/gallery-8.jpg" data-title="Raised Spa &amp; Water Feature" data-location="Arlington, TX">
-            <picture><img src="images/gallery/gallery-8.jpg" alt="Raised spa and water feature — Arlington, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
-            <div class="project-card-overlay"></div>
-            <div class="project-card-info"><h4>Raised Spa &amp; Water Feature</h4><p>Arlington, TX</p></div>
-          </div>
-
-          <div class="project-card" data-category="patios" data-img="images/gallery/gallery-7.jpg" data-title="Travertine Pool Decking" data-location="Mansfield, TX">
-            <picture><img src="images/gallery/gallery-7.jpg" alt="Travertine pool decking — Mansfield, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+          <div class="project-card" data-category="patios" data-img="images/hero/hero-3.jpg" data-title="Travertine Pool Decking" data-location="Mansfield, TX">
+            <picture><img src="images/hero/hero-3.jpg" alt="Travertine pool decking — Mansfield, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
             <div class="project-card-overlay"></div>
             <div class="project-card-info"><h4>Travertine Pool Decking</h4><p>Mansfield, TX</p></div>
           </div>
+          <div class="project-card" data-category="patios" data-img="images/gallery/gallery-9.png" data-title="Paver Patio &amp; Coping" data-location="Keller, TX">
+            <picture><img src="images/gallery/gallery-9.png" alt="Paver patio and coping — Keller, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Paver Patio &amp; Coping</h4><p>Keller, TX</p></div>
+          </div>
 
-          <div class="project-card" data-category="kitchens" data-img="images/gallery/gallery-6.jpg" data-title="Outdoor Living Space" data-location="Fort Worth, TX">
-            <picture><img src="images/hero/hero-3.jpg" alt="Outdoor living space and covered patio — Fort Worth, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+          <!-- OUTDOOR KITCHENS -->
+          <div class="project-card" data-category="kitchens" data-img="images/hero/hero-5.jpg" data-title="Outdoor Living Space" data-location="Fort Worth, TX">
+            <picture><img src="images/hero/hero-5.jpg" alt="Outdoor living space by the pool — Fort Worth, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
             <div class="project-card-overlay"></div>
             <div class="project-card-info"><h4>Outdoor Living Space</h4><p>Fort Worth, TX</p></div>
+          </div>
+          <div class="project-card" data-category="kitchens" data-img="images/gallery/gallery-8.jpg" data-title="Backyard Entertaining" data-location="Frisco, TX">
+            <picture><img src="images/gallery/gallery-8.jpg" alt="Backyard entertaining space — Frisco, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Backyard Entertaining</h4><p>Frisco, TX</p></div>
+          </div>
+          <div class="project-card" data-category="kitchens" data-img="images/gallery/gallery-6.jpg" data-title="Covered Patio &amp; Kitchen" data-location="Southlake, TX">
+            <picture><img src="images/gallery/gallery-6.jpg" alt="Covered patio and outdoor kitchen — Southlake, TX" width="360" height="440" loading="lazy" decoding="async"></picture>
+            <div class="project-card-overlay"></div>
+            <div class="project-card-info"><h4>Covered Patio &amp; Kitchen</h4><p>Southlake, TX</p></div>
           </div>
 
         </div>
@@ -571,6 +618,79 @@
       <p id="lightboxCaption" class="lightbox-caption"></p>
     </div>
   </div>
+
+  <!-- =====================================================================
+     FINANCING — trusted-lender partner cards
+  ====================================================================== -->
+  <section id="financing" class="section-padding">
+    <div class="fin-bg" aria-hidden="true">
+      <div class="fin-slide is-active" style="background-image:url('images/hero/hero-2.jpg')"></div>
+      <div class="fin-slide" style="background-image:url('images/gallery/gallery-7.jpg')"></div>
+      <div class="fin-slide" style="background-image:url('images/hero/hero-4.jpg')"></div>
+      <div class="fin-slide" style="background-image:url('images/gallery/gallery-8.jpg')"></div>
+    </div>
+    <div class="fin-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="fin-head reveal fade-up">
+        <p class="eyebrow">Financing</p>
+        <h2>Pool Financing Options</h2>
+        <p>We've partnered with trusted lenders to make your dream backyard affordable — flexible plans, competitive rates, and fast approvals.</p>
+      </div>
+
+      <div class="fin-grid">
+
+        <!-- 01 — Lyon Financial -->
+        <div class="fin-card reveal fade-up delay-1">
+          <div class="fin-card-top">
+            <span class="fin-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M14.6 9.4c0-1-1.2-1.6-2.6-1.6s-2.6.6-2.6 1.7 1.1 1.4 2.6 1.6 2.6.6 2.6 1.7-1.2 1.6-2.6 1.6-2.6-.6-2.6-1.6"/></svg>
+            </span>
+            <span class="fin-num">01</span>
+          </div>
+          <h3 class="fin-title"><strong>Lyon</strong><span>Financial</span></h3>
+          <p class="fin-desc">Specialized pool and spa loans with competitive rates and fast approvals — a longtime favorite for backyard projects.</p>
+          <!-- TODO: link to the real Lyon Financial application -->
+          <a class="fin-link" href="#" target="_blank" rel="noopener">Apply Now
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+          </a>
+        </div>
+
+        <!-- 02 — Pool Loan -->
+        <div class="fin-card reveal fade-up delay-2">
+          <div class="fin-card-top">
+            <span class="fin-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>
+            </span>
+            <span class="fin-num">02</span>
+          </div>
+          <h3 class="fin-title"><strong>Pool</strong><span>Loan</span></h3>
+          <p class="fin-desc">Dedicated pool financing tailored specifically for Living Water customers, with plans built around your build.</p>
+          <!-- TODO: link to the real Pool Loan application -->
+          <a class="fin-link" href="#" target="_blank" rel="noopener">Apply Now
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+          </a>
+        </div>
+
+        <!-- 03 — HFS Financial -->
+        <div class="fin-card reveal fade-up delay-3">
+          <div class="fin-card-top">
+            <span class="fin-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+            </span>
+            <span class="fin-num">03</span>
+          </div>
+          <h3 class="fin-title"><strong>HFS</strong><span>Financial</span></h3>
+          <p class="fin-desc">Home-improvement loans with no home equity required and quick decisions — approvals in as little as one business day.</p>
+          <!-- TODO: link to the real HFS Financial application -->
+          <a class="fin-link" href="#" target="_blank" rel="noopener">Apply Now
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5-5 5M6 12h12"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- =====================================================================
      TESTIMONIALS — 3-column vertical marquee (blue stars + rings)
@@ -829,6 +949,7 @@
   <button id="scrollTop" class="scroll-top-btn" aria-label="Scroll to top"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg></button>
 
   <script defer src="js/hero-quote.js"></script>
+  <script defer src="js/gallery-filter.js"></script>
   <script defer src="main.js"></script>
 </body>
 </html>

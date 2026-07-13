@@ -228,6 +228,23 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (e.key === 'ArrowRight') goNext();
       else if (e.key === 'ArrowLeft')  goPrev();
     });
+
+    /* Touch swipe (mobile): swipe left → next, swipe right → prev */
+    let swipeX = null, swipeY = null;
+    lightbox.addEventListener('touchstart', (e) => {
+      swipeX = e.changedTouches[0].clientX;
+      swipeY = e.changedTouches[0].clientY;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      if (swipeX === null) return;
+      const dx = e.changedTouches[0].clientX - swipeX;
+      const dy = e.changedTouches[0].clientY - swipeY;
+      /* horizontal swipe only (ignore vertical scroll gestures) */
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) goNext(); else goPrev();
+      }
+      swipeX = swipeY = null;
+    }, { passive: true });
   }
 
   // Set the initial state (default tab, no animation)

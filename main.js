@@ -739,3 +739,18 @@
 
   groups.forEach(function (g) { io.observe(g); });
 })();
+
+/* ─────────────────────────────────────────────────────────────
+   FINANCING — sliding photo background (advances every 3s)
+   ───────────────────────────────────────────────────────────── */
+(function financingBg() {
+  'use strict';
+  var slides = document.querySelectorAll('#financing .fin-slide');
+  if (slides.length < 2) return;
+  var i = 0;
+  setInterval(function () {
+    slides[i].classList.remove('is-active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('is-active');
+  }, 3000);
+})();

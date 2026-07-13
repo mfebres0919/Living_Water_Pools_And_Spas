@@ -286,6 +286,26 @@
 }
 
 /* ══════════════════════════════════════════════
+   PRINT — "Download Information" saves this page as a PDF.
+   Strip the fixed nav, scroll button, and the download box itself
+   so the saved document is clean content only.
+═══════════════════════════════════════════════ */
+@media print {
+  #navbar,
+  .nav-overlay,
+  #scrollTop,
+  .svc-brochure { display: none !important; }
+
+  .page-hero { min-height: auto; padding: 1rem 0; }
+  .lets-talk { padding: 2.5rem 0; }
+  .svc-layout { grid-template-columns: 1fr !important; gap: 1.5rem; }
+  .svc-sidebar { position: static !important; }
+  .svc-help { min-height: 0; }
+  body { background: #fff; }
+  a { text-decoration: none; color: inherit; }
+}
+
+/* ══════════════════════════════════════════════
    STICKY SIDEBAR
    On large screens the main column is much taller than the sidebar, so as
    you scroll the right side would sit empty and white. Pinning the sidebar

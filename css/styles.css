@@ -116,6 +116,13 @@ html { scroll-padding-top: 84px; }   /* offset anchor jumps under the fixed nav 
 #navbar.is-scrolled .nav-links > li > a:hover,
 #navbar.is-scrolled .nav-links > li > a.is-active { color: var(--maroon); }
 
+/* Services dropdown toggle matches the other nav links (desktop bar only —
+   the drawer toggle keeps its dark colour on the light drawer). */
+#navbar .nav-links .nav-drop-toggle { color: var(--white); }
+#navbar.is-scrolled .nav-links .nav-drop-toggle { color: var(--text-primary); }
+#navbar .nav-links .nav-drop-toggle:hover { color: var(--maroon-lt); }
+#navbar.is-scrolled .nav-links .nav-drop-toggle:hover { color: var(--maroon); }
+
 /* Hamburger lines white over hero, dark once scrolled */
 #navbar .nav-hamburger span { background: var(--white); }
 #navbar.is-scrolled .nav-hamburger span { background: var(--text-primary); }

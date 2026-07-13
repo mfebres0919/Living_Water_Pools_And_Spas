@@ -1,0 +1,131 @@
+/* ══════════════════════════════════════════════════════════════
+   FINANCING — Living Water Pools and Spas
+   Clean numbered cards (modeled on the 2nd screenshot the user gave),
+   retinted to the theme blue. Lender content from their current site.
+═══════════════════════════════════════════════════════════════ */
+#financing {
+  position: relative;
+  overflow: hidden;
+  background: #0b1f3a;               /* dark fallback under the photos */
+}
+
+/* ── Sliding photo background (advances every 3s via main.js) ── */
+.fin-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.fin-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: translateX(-70px);     /* parked to the left → slides in rightward */
+  transition: opacity 1s ease, transform 1.2s ease;
+  will-change: opacity, transform;
+}
+.fin-slide.is-active { opacity: 1; transform: translateX(0); }
+.fin-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(9,20,40,0.74) 0%, rgba(9,20,40,0.82) 100%);
+}
+#financing > .container { position: relative; z-index: 2; }
+@media (prefers-reduced-motion: reduce) {
+  .fin-slide { transition: opacity 1s ease; transform: none; }
+}
+
+.fin-head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem;
+}
+.fin-head .eyebrow { justify-content: center; color: var(--maroon-lt); }
+.fin-head .eyebrow::before { display: none; }
+.fin-head h2 { margin-bottom: 1rem; color: var(--white); }
+.fin-head p { color: rgba(255, 255, 255, 0.82); }
+
+.fin-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+@media (min-width: 700px)  { .fin-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .fin-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.fin-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  border-radius: 14px;
+  padding: 2rem 1.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.fin-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(23, 71, 153, 0.10);
+  border-color: var(--maroon);
+}
+
+/* Icon (left) + big index number (right) */
+.fin-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+.fin-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(22, 70, 154, 0.08);
+  color: var(--maroon);
+}
+.fin-icon svg { width: 26px; height: 26px; }
+.fin-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--grey-200);
+}
+
+/* Two-tone title: brand word heavy, rest lighter (like the mockup) */
+.fin-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.12;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+.fin-title strong { display: block; font-weight: 800; }
+.fin-title span   { display: block; font-weight: 600; color: var(--grey-400); }
+
+.fin-desc {
+  color: var(--text-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.fin-link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--maroon);
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+.fin-link svg { width: 16px; height: 16px; }
+.fin-link:hover { gap: 0.85rem; color: var(--maroon-dk); }
